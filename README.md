@@ -11,10 +11,10 @@
 ### Further Breakdown:
 
 - Anand Odbayar: Anand helped contribute towards the final presentation. He created the Procedure and Analysis slides. 
-- Blake Raphael: Blake contributed by finding three of our models that we tested, specifically Dynamic TinyBERT, DistilBERT Base Cased SQUaD, and DistilBERT Base Uncased SQUaD. He also wrote up a bulk of our progress report including elaborating a bit on our methodology, finding three of our related works, and explaining our next steps in the process. He also created the Premise and Hypothesis Slides as well as helping with the Related Works slides and proofreading. Blake also helped proofread the project abstract along with finding the premise and dataset.
-- Giovanni Evans: Giovanni Evans contributed towards the project abstract, progress report, and final presentation. Giovanni was the proofreader for the project abstract and progress report and contributed to the final presentation by helping create and discuss the Related Works slides.
+- Blake Raphael: Blake contributed by finding three of our models that we tested, specifically Dynamic TinyBERT, DistilBERT Base Cased SQUaD, and DistilBERT Base Uncased SQUaD. He also wrote up a bulk of our progress report including elaborating a bit on our methodology, finding three of our related works, and explaining our next steps in the process. He also created the Premise and Hypothesis Slides as well as proofreading. Blake also helped proofread the project abstract along with finding the premise and dataset.
+- Giovanni Evans: Giovanni Evans contributed towards the project abstract, progress report, and final presentation. Giovanni was the proofreader for the project abstract and progress report and contributed to the final presentation by helping create and discuss the Related Works slides. He also contributed to the final README. 
 - Patrick Liu: Patrick contributed by implementing most of the code base and debugging. Patrick also helped by finding the premise and dataset along with writing up the project abstract. He found the bulk of the models to test and helped format results both in the code and on the slides. Patrick found the following models to test:  BERT base-uncased, RoBERTa base-sentiment, DistilBERT base-uncased, BERT base-spanish, RoBERTA base-SQUAD2, RoBERTa large-english sentiment, and Feel-it italian-sentiment. Patrick also created the Results section of our slides and contributed to the progress report by introducing our concept, discussing our dataset, outlining a bit of our methodology, finding a related work, and explaining a few of our next steps.
-- Reilly Cepuritis: Reilly contributed by helping create the Related Works slides and proofreading.
+- Reilly Cepuritis: Reilly contributed by helping create the slides and proofreading.
 
 ##### Terminology:
 
@@ -52,11 +52,13 @@ First we recommend grabbing the dataset for training, validation, and testing. T
 
 #### Part 2: Setting Up for Training
 
-While running the blocks sequentially, we arrive to the sections with ```AutoModelForMultipleChoice``` and ```DataCollatorForMultipleChoice```. Both of these sections set up our models to fit with our adjusted datasets by setting them up in a multiple choice fashion. Next we set up our function to compute our evaluation metrics (In this case we are using F1 sccore to evaluate our models). 
+While running the blocks sequentially, we arrive to the sections with ```AutoModelForMultipleChoice``` and ```DataCollatorForMultipleChoice```. These sections are pivotal in configuring our models to align with our customized datasets, which is in the multiple-choice format. Following this configuration, we establish a dedicated function designed to compute our evaluation metrics. In our case, we employ the F1 score as the primary metric to assess the performance of our models. This metric provides valuable insights into the models' precision and recall, offering a comprehensive understanding of their effectiveness in tackling the given task.
 
 #### Part 3: Training
 
-The next section we come to is where we start to train our model. We start with setting up our model and providing arguments, encoded datasets from our training and evaluation, our tokenizer, our data collector, and finally we compute the evaluation metrics. Next we have a test block to ensure our trainer is working correctly, then we move on to our evaluator and formatting function. We then append each reference and prediction and evaluate how accurate our model is and finally print this number in a human readable format. We next define our ```trainAndEval``` function to combine our previous set up training with our evaluator
+In this phase, we start the pivotal stage of model training. We first establish the model's architecture and configure the parameters. Additionally, we prepare the datasets required for both training and evaluation purposes. Following the setup, the tokenizer is used to facilitate the conversion of raw textual data into a format digestible by the model. Subsequently, the data collector orchestrates the organization of data, ensuring seamless processing throughout the training and evaluation phases.
+
+To discover the proper functionality of our trainer, a test block is executed to validate its performance. Once verified, we proceed to evaluate the model's effectiveness on the designated evaluation dataset. The results are then computed and presented in a human-readable format, providing valuable insights into the model's accuracy and performance. To streamline this process and enhance reproducibility, we encapsulate the entire training and evaluation pipeline within the 'trainAndEval' function, offering a cohesive and efficient solution for model training and assessment.
 
 #### Part 4: Evaluating the Models
 
@@ -79,7 +81,9 @@ We print the results from the evalutions after 3 epochs of training. This does t
 
 #### Part 5: Results and Analysis
 
-The outputs are the answer choice (1 or 0 from our earlier preprocessing) that are then evaluated for accuracy using F1 score. This is hardcoded so please do not forget to change these when you run your versions. These evaluation results are then stored in lists to more easily graph the results. The next blocks of code are bar charts of our grouped model types of Baseline, Sentiment Analysis, and SQUaD. we then graph the best from these categories in the last bar chart. See [here](https://docs.google.com/presentation/d/1K4x0OJyhAfyJciX1ozsdWsNbCaIEuzyqk6jUJZNDq2g/edit?usp=sharing) for our in class materials discussing our procedure and results.
+The outputs are the answer choice (1 or 0 from our earlier preprocessing) that are then evaluated for accuracy using F1 score. This is hardcoded so please do not forget to change these when you run your versions. These evaluation results are then stored in lists to more easily graph the results. To provide a comprehensive analysis, the results are visually represented through bar charts categorizing the models into Baseline, Sentiment Analysis, and SQUaD types. Additionally, the last bar chart showcases the top-performing models from each category, offering a clear comparison of their respective performances.
+
+See [here](https://docs.google.com/presentation/d/1K4x0OJyhAfyJciX1ozsdWsNbCaIEuzyqk6jUJZNDq2g/edit?usp=sharing) for our in class materials discussing our procedure and results.
 
 ### Final Results Expected Performance
 
